@@ -1,0 +1,26 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Django
+db.sqlite3
+*.sqlite3
+staticfiles/
+media/
+*.log
+
+# Editors
+.vscode/
+.idea/
+.DS_Store
+
+# Backups from earlier fixes
+*.bak
+*.bak.*

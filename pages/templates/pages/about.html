@@ -1,0 +1,74 @@
+{% extends 'pages/base.html' %}
+
+{% block meta_title %}About — Debbindu Bairagi{% endblock %}
+{% block meta_description %}<meta name="description" content="About Debbindu Bairagi — Linux admin and Django developer. Computer Science graduate, freelancing since COVID lockdowns, self-hosted homelab with Nginx, Pi-hole, WireGuard, Docker Compose.">{% endblock %}
+{% block canonical_url %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+{% block og_tags %}
+<meta property="og:type" content="profile">
+<meta property="og:title" content="About — Debbindu Bairagi">
+<meta property="og:description" content="Linux admin and Django developer. Computer Science graduate, freelancing since COVID lockdowns, self-hosted homelab.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Debbindu Bairagi">
+{% endblock %}
+{% block json_ld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Debbindu Bairagi",
+  "url": "{{ request.build_absolute_uri }}",
+  "description": "Linux admin and Django developer. Computer Science graduate, freelancing since COVID lockdowns, self-hosted homelab with Nginx, Pi-hole, WireGuard, Docker Compose.",
+  "jobTitle": "Linux admin and Django developer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Self-employed"
+  },
+  "knowsAbout": ["Linux administration", "Django development", "Docker", "Pi-hole", "WireGuard", "Nginx", "Homelab", "AI-assisted security"],
+  "sameAs": [
+    "{{ GITHUB_URL }}"
+  ],
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "North Western University"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <div class="max-w-3xl mx-auto animate-fade-in-up">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-4">About</p>
+    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-100 mb-10">Background</h1>
+
+    <dl class="space-y-8">
+      <div>
+        <dt class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-2">Education</dt>
+        <dd class="text-zinc-400 leading-relaxed">Computer Science graduate, North Western University, Khulna, 2021–2025.</dd>
+      </div>
+
+      <div>
+        <dt class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-2">Timeline</dt>
+        <dd class="text-zinc-400 leading-relaxed">Freelancing since the COVID lockdowns on Fiverr, Upwork, and Freelancer.com — data entry and web research, then WordPress site customization, then Django to build custom web applications instead of patching plugins.</dd>
+      </div>
+
+      <div>
+        <dt class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-2">Homelab</dt>
+        <dd class="text-zinc-400 leading-relaxed">Self-hosted on a single-board computer: Nginx web servers, Pi-hole for network-wide DNS blocking, WireGuard via wg-easy for remote access, all orchestrated with Docker Compose.</dd>
+      </div>
+
+      <div>
+        <dt class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-2">Direction</dt>
+        <dd class="text-zinc-400 leading-relaxed">Studying AI-assisted defensive security: system hardening, DNS filtering, VPN configuration, log analysis, and safe automation. Not a pentester or security expert — focusing on practical hardening and detection for self-hosted infrastructure.</dd>
+      </div>
+
+      <div>
+        <dt class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-2">Code</dt>
+        <dd class="text-zinc-400 leading-relaxed">
+          <a href="{{ GITHUB_URL }}" target="_blank" rel="noopener" class="text-amber-500 hover:underline font-mono text-sm">{{ GITHUB_URL }}</a>
+        </dd>
+      </div>
+    </dl>
+
+    <p class="text-zinc-500 text-sm mt-10 pt-6 border-t border-zinc-800">No corporate employers listed. The work speaks for itself.</p>
+  </div>
+{% endblock %}

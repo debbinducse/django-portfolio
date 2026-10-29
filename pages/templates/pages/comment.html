@@ -1,0 +1,20 @@
+<article class="comment border-l-2 border-zinc-800 pl-4 sm:pl-6 lg:pl-8 my-6" id="comment-{{ comment.id }}">
+  <header class="flex flex-wrap items-baseline gap-3 mb-2">
+    <strong class="text-zinc-100">{{ comment.name }}</strong>
+    <span class="font-mono text-xs text-zinc-500">{{ comment.created_at|date:"M d, Y H:i" }}</span>
+    {% if not comment.is_reply %}
+      <a href="#" class="reply-link inline-flex items-center h-11 min-h-[44px] px-3 font-mono text-xs text-amber-500 uppercase tracking-wider hover:bg-zinc-800 rounded-lg transition-colors" data-comment-id="{{ comment.id }}">Reply</a>
+    {% endif %}
+  </header>
+  <div class="text-zinc-300 leading-relaxed whitespace-pre-wrap break-words">{{ comment.body }}</div>
+
+  {% if comment.replies.all %}
+    <div class="mt-4">
+      {% for reply in comment.replies.all %}
+        {% if reply.is_approved %}
+          {% include 'pages/comment.html' with comment=reply %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</article>

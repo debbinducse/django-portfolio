@@ -1,0 +1,53 @@
+{% extends 'pages/base.html' %}
+
+{% block meta_title %}Blog — Debbindu Bairagi{% endblock %}
+{% block meta_description %}<meta name="description" content="Technical blog by Debbindu Bairagi. Notes on Django, Linux, databases, homelab, DNS/VPN, AI-assisted security, and freelance development.">{% endblock %}
+{% block canonical_url %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+{% block og_tags %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog — Debbindu Bairagi">
+<meta property="og:description" content="Technical blog by Debbindu Bairagi. Notes on Django, Linux, databases, homelab, DNS/VPN, AI-assisted security, and freelance development.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Debbindu Bairagi">
+{% endblock %}
+
+{% block content %}
+  <div class="prose animate-fade-in-up">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-4">Blog</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-100 mb-6">Technical writing</h1>
+    <p class="text-zinc-400 text-lg leading-relaxed mb-10">
+      Notes on Django, Linux, databases, and infrastructure. Mostly for future me.
+    </p>
+  </div>
+
+  {% if categories %}
+  <nav class="mb-8 animate-fade-in-up" style="animation-delay: 0.05s;" aria-label="Category filter">
+    <ul class="flex flex-wrap gap-2">
+      <li>
+        <a href="{% url 'blog' %}" class="{% if not current_category %}bg-amber-500 text-zinc-950{% else %}bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-amber-500{% endif %} inline-flex items-center px-4 py-2 text-sm font-medium rounded-full border transition-colors duration-150 min-h-[44px]">All</a>
+      </li>
+      {% for cat in categories %}
+      <li>
+        <a href="{{ cat.get_absolute_url }}" class="{% if current_category == cat %}bg-amber-500 text-zinc-950{% else %}bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-amber-500{% endif %} inline-flex items-center px-4 py-2 text-sm font-medium rounded-full border transition-colors duration-150 min-h-[44px]">{{ cat.name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in-up" style="animation-delay: 0.1s;">
+    {% if posts %}
+      {% for post in posts %}
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <p class="font-mono text-xs text-zinc-500 mb-3">{{ post.published_at|date:"M d, Y" }}</p>
+        <h3 class="text-lg font-semibold text-zinc-100 mb-2"><a href="{{ post.get_absolute_url }}" class="hover:text-amber-500 transition-colors">{{ post.title }}</a></h3>
+        <p class="text-zinc-400 leading-relaxed">{{ post.excerpt|truncatewords:40 }}</p>
+      </article>
+      {% endfor %}
+    {% else %}
+      <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-12 text-center col-span-full">
+        <p class="text-zinc-400">No posts yet. Check back soon.</p>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

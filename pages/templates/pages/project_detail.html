@@ -1,0 +1,77 @@
+{% extends 'pages/base.html' %}
+
+{% block meta_title %}{{ project.title }} — Debbindu Bairagi{% endblock %}
+{% block meta_description %}<meta name="description" content="{{ project.summary|truncatewords:30 }}">{% endblock %}
+{% block canonical_url %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+{% block og_tags %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ project.title }} — Debbindu Bairagi">
+<meta property="og:description" content="{{ project.summary|truncatewords:30 }}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Debbindu Bairagi">
+{% endblock %}
+
+{% block content %}
+  <article class="prose animate-fade-in-up max-w-3xl">
+    <header class="mb-10">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-2">Project</p>
+          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-100">{{ project.title }}</h1>
+        </div>
+        {% if project.featured %}
+        <span class="inline-flex items-center px-3 py-1 text-sm font-mono text-amber-500 bg-amber-500/10 rounded-full whitespace-nowrap shrink-0">Featured</span>
+        {% endif %}
+      </div>
+      {% if project.repo_url %}
+      <p class="text-zinc-400 flex flex-wrap gap-4 items-center">
+        <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="text-amber-500 hover:underline font-mono text-sm">{{ project.repo_url }}</a>
+        {% if project.live_url %}
+        <a href="{{ project.live_url }}" target="_blank" rel="noopener" class="text-emerald-400 hover:underline font-mono text-sm">Live → {{ project.live_url }}</a>
+        {% endif %}
+      </p>
+      {% elif project.live_url %}
+      <p class="text-zinc-400"><a href="{{ project.live_url }}" target="_blank" rel="noopener" class="text-emerald-400 hover:underline font-mono text-sm">Live → {{ project.live_url }}</a></p>
+      {% endif %}
+    </header>
+
+    <div class="space-y-10">
+      <section>
+        <h2 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Summary</h2>
+        <p class="text-zinc-400 leading-relaxed">{{ project.summary|linebreaks }}</p>
+      </section>
+
+      {% if project.functions %}
+      <section>
+        <h2 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Functions</h2>
+        <ul class="space-y-2 text-zinc-300">
+          {% for func in project.functions.splitlines %}
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>{{ func }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      {% if project.stack %}
+      <section>
+        <h2 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Stack</h2>
+        <div class="flex flex-wrap gap-2">
+          {% for item in project.stack.split %}
+          <span class="inline-flex items-center px-3 py-1 text-sm font-mono text-zinc-300 bg-zinc-800 rounded-lg">{{ item }}</span>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-zinc-800 flex flex-wrap gap-3">
+      <a href="{% url 'projects' %}" class="inline-flex items-center gap-2 border border-zinc-700 text-zinc-100 px-5 py-2.5 rounded-xl font-semibold text-sm hover:border-amber-500 hover:text-amber-500 hover:bg-zinc-800 transition-colors duration-150 min-h-[44px]">← Back to projects</a>
+      {% if project.repo_url %}
+      <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-amber-500 text-zinc-950 px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-amber-400 transition-colors duration-150 min-h-[44px]">View on GitHub</a>
+      {% endif %}
+      {% if project.live_url %}
+      <a href="{{ project.live_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-emerald-500 text-zinc-950 px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-emerald-400 transition-colors duration-150 min-h-[44px]">Open Live</a>
+      {% endif %}
+    </div>
+  </article>
+{% endblock %}

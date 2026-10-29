@@ -1,0 +1,74 @@
+{% extends 'pages/base.html' %}
+
+{% block meta_title %}Contact — Debbindu Bairagi{% endblock %}
+{% block meta_description %}<meta name="description" content="Contact Debbindu Bairagi — Linux admin and Django developer. Have a project in mind? Questions about Django or Linux? Reach out.">{% endblock %}
+{% block canonical_url %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+{% block og_tags %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — Debbindu Bairagi">
+<meta property="og:description" content="Contact Debbindu Bairagi — Linux admin and Django developer. Have a project in mind? Questions about Django or Linux? Reach out.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Debbindu Bairagi">
+{% endblock %}
+
+{% block content %}
+  <div class="prose animate-fade-in-up">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-4">Contact</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-100 mb-6">Get in touch</h1>
+    <p class="text-zinc-400 text-lg leading-relaxed mb-10">
+      Have a project in mind? Questions about Django or Linux? Reach out.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 animate-fade-in-up" style="animation-delay: 0.1s;">
+    <div class="lg:pl-8">
+      <div class="space-y-6">
+        <div>
+          <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-2">Name</p>
+          <p class="text-zinc-100 text-lg font-medium">Debbindu</p>
+        </div>
+        <div>
+          <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-2">Location</p>
+          <p class="text-zinc-400">Khulna, Bangladesh</p>
+        </div>
+        <div>
+          <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-2">GitHub</p>
+          <p class="text-zinc-400"><a href="https://github.com/debbindubd" target="_blank" rel="noopener" class="text-amber-500 hover:underline font-mono text-sm">https://github.com/debbindubd</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      {% if success %}
+        <div class="animate-fade-in text-amber-500 font-mono text-sm mb-8">Message sent. I'll reply when I can.</div>
+      {% endif %}
+
+      <form method="post" action="{% url 'contact' %}" novalidate class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+        {% csrf_token %}
+        <div class="space-y-6">
+          <div>
+            <label for="id_name" class="block font-mono text-xs text-zinc-500 uppercase tracking-wider mb-2">Name</label>
+            <input type="text" id="id_name" name="name" required autocomplete="name" class="w-full bg-zinc-950 border border-zinc-700 text-zinc-100 placeholder-zinc-500 px-4 py-3.5 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-150 min-h-[48px]">
+          </div>
+          <div>
+            <label for="id_email" class="block font-mono text-xs text-zinc-500 uppercase tracking-wider mb-2">Email</label>
+            <input type="email" id="id_email" name="email" required autocomplete="email" class="w-full bg-zinc-950 border border-zinc-700 text-zinc-100 placeholder-zinc-500 px-4 py-3.5 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-150 min-h-[48px]">
+          </div>
+          <div>
+            <label for="id_subject" class="block font-mono text-xs text-zinc-500 uppercase tracking-wider mb-2">Subject</label>
+            <input type="text" id="id_subject" name="subject" required class="w-full bg-zinc-950 border border-zinc-700 text-zinc-100 placeholder-zinc-500 px-4 py-3.5 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-150 min-h-[48px]">
+          </div>
+          <div>
+            <label for="id_message" class="block font-mono text-xs text-zinc-500 uppercase tracking-wider mb-2">Message</label>
+            <textarea id="id_message" name="message" required rows="6" class="w-full bg-zinc-950 border border-zinc-700 text-zinc-100 placeholder-zinc-500 px-4 py-3.5 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-150 resize-y min-h-[140px]"></textarea>
+          </div>
+          <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-amber-500 text-zinc-950 px-6 py-3.5 rounded-xl font-semibold text-sm hover:bg-amber-400 transition-colors duration-150 min-h-[48px]">Send message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="mt-12 sm:mt-16 pt-8 border-t border-zinc-800 animate-fade-in-up" style="animation-delay: 0.2s;">
+    <p class="text-zinc-400">Response time: usually within 24–48 hours on weekdays.</p>
+  </div>
+{% endblock %}

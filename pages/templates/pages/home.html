@@ -1,0 +1,219 @@
+{% extends 'pages/base.html' %}
+
+{% block meta_title %}Debbindu Bairagi — Linux admin and Django developer{% endblock %}
+{% block meta_description %}<meta name="description" content="Linux admin and Django developer. Homelab, Django, DNS/VPN, AI-assisted security, Freelance. Building reliable backend systems and automating infrastructure.">{% endblock %}
+{% block canonical_url %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+{% block og_tags %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Debbindu Bairagi — Linux admin and Django developer">
+<meta property="og:description" content="Linux admin and Django developer. Homelab, Django, DNS/VPN, AI-assisted security, Freelance.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Debbindu Bairagi">
+{% endblock %}
+{% block json_ld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Debbindu Bairagi",
+  "url": "{{ request.build_absolute_uri }}",
+  "description": "Linux admin and Django developer. Homelab, Django, DNS/VPN, AI-assisted security, Freelance.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ request.build_absolute_uri }}blog/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Debbindu Bairagi",
+    "url": "{{ request.build_absolute_uri }}/about/"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <section class="prose animate-fade-in-up" aria-labelledby="intro-heading">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-4">Introduction</p>
+    <h1 id="intro-heading" class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-100 mb-6">Linux admin & Django developer</h1>
+    <p class="text-zinc-400 text-lg leading-relaxed mb-8">
+      I build reliable backend systems, automate infrastructure, and ship clean Django applications.
+      Currently focused on server-side performance, deployment pipelines, and maintainable codebases.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a href="{% url 'contact' %}" class="inline-flex items-center justify-center gap-2 bg-amber-500 text-zinc-950 px-6 py-3 rounded-xl font-semibold text-sm hover:bg-amber-400 transition-colors duration-150 min-h-[48px]">Discuss a project</a>
+      <a href="{% url 'blog' %}" class="inline-flex items-center justify-center gap-2 border border-zinc-700 text-zinc-100 px-6 py-3 rounded-xl font-semibold text-sm hover:border-amber-500 hover:text-amber-500 hover:bg-zinc-800 transition-colors duration-150 min-h-[48px]">Read the notes</a>
+    </div>
+  </section>
+
+  <section class="mt-16 sm:mt-24 animate-fade-in-up" style="animation-delay: 0.1s;">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-6">What I do</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-3">Linux server setup</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-4">Fresh provisioning, hardening, SSH keys, firewall, fail2ban, automatic updates, systemd services, log rotation, and baseline monitoring.</p>
+        <a href="{% url 'services' %}" class="inline-flex items-center gap-1 font-mono text-xs text-amber-500 hover:underline">View details →</a>
+      </article>
+
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-3">Docker Compose</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-4">Multi-container stacks with networks, volumes, healthchecks, restart policies, and environment separation for dev/staging/prod.</p>
+        <a href="{% url 'services' %}" class="inline-flex items-center gap-1 font-mono text-xs text-amber-500 hover:underline">View details →</a>
+      </article>
+
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-3">Pi-hole</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-4">Network-wide DNS sinkhole with custom blocklists, regex filters, conditional forwarding, Prometheus metrics, and automated gravity updates.</p>
+        <a href="{% url 'services' %}" class="inline-flex items-center gap-1 font-mono text-xs text-amber-500 hover:underline">View details →</a>
+      </article>
+
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-3">WireGuard</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-4">VPN with wg-easy web UI for peer management: QR codes, per-peer DNS/MTU/keepalive, firewall rules, systemd service, TLS reverse proxy.</p>
+        <a href="{% url 'services' %}" class="inline-flex items-center gap-1 font-mono text-xs text-amber-500 hover:underline">View details →</a>
+      </article>
+
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-3">WordPress fixes</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-4">Debugging, performance tuning, plugin conflicts, malware removal, PHP upgrades, Redis object caching, Nginx fastcgi cache, security headers.</p>
+        <a href="{% url 'services' %}" class="inline-flex items-center gap-1 font-mono text-xs text-amber-500 hover:underline">View details →</a>
+      </article>
+
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-3">Small Django sites</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-4">End-to-end projects: models, admin, views, templates, auth, tests, Dockerfile, docker-compose, Nginx/Gunicorn, PostgreSQL, Redis, basic CI.</p>
+        <a href="{% url 'services' %}" class="inline-flex items-center gap-1 font-mono text-xs text-amber-500 hover:underline">View details →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="mt-16 sm:mt-24 animate-fade-in-up" style="animation-delay: 0.15s;">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-6">Featured projects</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      {% for project in featured_projects %}
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5 flex flex-col">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-3">{{ project.title }}</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-4 flex-1">{{ project.summary|truncatewords:25 }}</p>
+        {% if project.stack %}
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          {% for item in project.stack.split %}
+          <span class="inline-flex items-center px-2 py-0.5 text-xs font-mono text-zinc-400 bg-zinc-800 rounded">{{ item }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <div class="flex items-center gap-3 pt-2 border-t border-zinc-800">
+          <a href="{{ project.get_absolute_url }}" class="font-mono text-xs text-amber-500 hover:underline">View details</a>
+          {% if project.repo_url %}
+          <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="font-mono text-xs text-zinc-400 hover:text-amber-500 transition-colors">GitHub</a>
+          {% endif %}
+        </div>
+      </article>
+      {% empty %}
+      <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-12 text-center col-span-full">
+        <p class="text-zinc-400">No featured projects yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mt-8 text-center">
+      <a href="{% url 'projects' %}" class="inline-flex items-center justify-center gap-2 border border-zinc-700 text-zinc-100 px-6 py-3 rounded-xl font-semibold text-sm hover:border-amber-500 hover:text-amber-500 hover:bg-zinc-800 transition-colors duration-150 min-h-[48px]">All projects →</a>
+    </div>
+  </section>
+
+  <section class="mt-16 sm:mt-24 animate-fade-in-up" style="animation-delay: 0.1s;">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-6">Proof of work</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-4">Homelab stack</h3>
+        <p class="text-zinc-400 mb-4 leading-relaxed">
+          Self-hosted on a single-board computer: Nginx reverse proxy, Pi-hole for network-wide DNS blocking,
+          WireGuard via wg-easy for remote access, and Docker Compose orchestrating all services.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Nginx</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Pi-hole</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">WireGuard</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">wg-easy</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Docker Compose</span>
+        </div>
+      </article>
+
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-4">Freelance path</h3>
+        <p class="text-zinc-400 mb-4 leading-relaxed">
+          Started with data entry and research during COVID lockdowns on Fiverr, Upwork, and Freelancer.com.
+          Moved to WordPress sites, then learned Django to build custom web applications instead of patching plugins.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Data entry</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Research</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">WordPress</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Django</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Fiverr</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Upwork</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Freelancer.com</span>
+        </div>
+      </article>
+
+      <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+        <h3 class="text-lg font-semibold text-zinc-100 mb-4">AI-assisted delivery</h3>
+        <p class="text-zinc-400 mb-4 leading-relaxed">
+          Use LLMs for scaffolding, refactoring, test generation, and documentation. Keeps velocity high
+          while I review and own every line that ships.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Scaffolding</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Refactoring</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Test generation</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full">Documentation</span>
+        </div>
+      </article>
+    </div>
+
+    <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mt-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+      <h3 class="text-lg font-semibold text-zinc-100 mb-4">Architecture</h3>
+      <p class="text-zinc-400 mb-4 text-sm leading-relaxed">
+        Request flow through the homelab:
+      </p>
+      <div class="flex flex-wrap items-center gap-2 font-mono text-sm leading-7 overflow-x-auto pb-2">
+        <span class="text-amber-500 font-semibold whitespace-nowrap">edge</span>
+        <span class="text-zinc-500">→</span>
+        <span class="text-zinc-300 whitespace-nowrap">Pi-hole (DNS)</span>
+        <span class="text-zinc-500">→</span>
+        <span class="text-zinc-500">→</span>
+        <span class="text-zinc-300 whitespace-nowrap">WireGuard (VPN)</span>
+        <span class="text-zinc-500">→</span>
+        <span class="text-zinc-500">→</span>
+        <span class="text-zinc-300 whitespace-nowrap">Docker apps</span>
+        <span class="text-zinc-500">→</span>
+        <span class="text-zinc-500">→</span>
+        <span class="text-amber-500 font-semibold whitespace-nowrap">Django site</span>
+      </div>
+    </article>
+  </section>
+
+  <section class="mt-16 sm:mt-24 animate-fade-in-up" style="animation-delay: 0.2s;">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-6">Latest writing</p>
+    <div id="latest-posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      {% if latest_posts %}
+        {% for post in latest_posts %}
+        <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5">
+          <p class="font-mono text-xs text-zinc-500 mb-3">{{ post.published_at|date:"M d, Y" }}</p>
+          <h3 class="text-lg font-semibold text-zinc-100 mb-2"><a href="{{ post.get_absolute_url }}" class="hover:text-amber-500 transition-colors">{{ post.title }}</a></h3>
+          <p class="text-zinc-400 leading-relaxed">{{ post.excerpt|truncatewords:30 }}</p>
+        </article>
+        {% endfor %}
+      {% else %}
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-12 text-center col-span-full">
+          <p class="text-zinc-400">No posts yet. <a href="{% url 'blog' %}" class="text-amber-500 hover:underline">Check the blog</a> later.</p>
+        </div>
+      {% endif %}
+    </div>
+    <div class="mt-8 text-center">
+      <a href="{% url 'blog' %}" class="inline-flex items-center justify-center gap-2 bg-amber-500 text-zinc-950 px-6 py-3 rounded-xl font-semibold text-sm hover:bg-amber-400 transition-colors duration-150 min-h-[48px]">View all posts →</a>
+    </div>
+  </section>
+{% endblock %}

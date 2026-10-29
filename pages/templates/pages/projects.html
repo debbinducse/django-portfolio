@@ -1,0 +1,56 @@
+{% extends 'pages/base.html' %}
+
+{% block meta_title %}Projects — Debbindu Bairagi{% endblock %}
+{% block meta_description %}<meta name="description" content="Selected projects by Debbindu Bairagi — Linux admin and Django developer. A mix of practice projects, experiments, and tools.">{% endblock %}
+{% block canonical_url %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+{% block og_tags %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projects — Debbindu Bairagi">
+<meta property="og:description" content="Selected projects by Debbindu Bairagi — Linux admin and Django developer. A mix of practice projects, experiments, and tools.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Debbindu Bairagi">
+{% endblock %}
+
+{% block content %}
+  <div class="prose animate-fade-in-up">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-4">Projects</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-100 mb-6">Selected work</h1>
+    <p class="text-zinc-400 text-lg leading-relaxed mb-10">
+      A mix of practice projects, experiments, and tools. Most are learning exercises — not production sites.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in-up" style="animation-delay: 0.1s;">
+    {% for project in projects %}
+    <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 transition-all duration-200 hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5 flex flex-col">
+      <div class="flex items-start justify-between gap-2 mb-3">
+        <h3 class="text-lg font-semibold text-zinc-100 flex-1">{{ project.title }}</h3>
+        {% if project.featured %}
+        <span class="inline-flex items-center px-2 py-0.5 text-xs font-mono text-amber-500 bg-amber-500/10 rounded-full whitespace-nowrap">Featured</span>
+        {% endif %}
+      </div>
+      <p class="text-zinc-400 text-sm leading-relaxed mb-4 flex-1">{{ project.summary|truncatewords:30 }}</p>
+      {% if project.stack %}
+      <div class="flex flex-wrap gap-1.5 mb-4">
+        {% for item in project.stack.split %}
+        <span class="inline-flex items-center px-2 py-0.5 text-xs font-mono text-zinc-400 bg-zinc-800 rounded">{{ item }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="flex items-center gap-3 pt-2 border-t border-zinc-800">
+        <a href="{{ project.get_absolute_url }}" class="font-mono text-xs text-amber-500 hover:underline">View details</a>
+        {% if project.repo_url %}
+        <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="font-mono text-xs text-zinc-400 hover:text-amber-500 transition-colors">GitHub</a>
+        {% endif %}
+        {% if project.live_url %}
+        <a href="{{ project.live_url }}" target="_blank" rel="noopener" class="font-mono text-xs text-emerald-400 hover:text-emerald-300 transition-colors">Live</a>
+        {% endif %}
+      </div>
+    </article>
+    {% empty %}
+    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-12 text-center col-span-full">
+      <p class="text-zinc-400">No projects yet.</p>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,240 @@
+{% extends 'pages/base.html' %}
+
+{% block meta_title %}Services — Debbindu Bairagi{% endblock %}
+{% block meta_description %}<meta name="description" content="Linux admin and Django developer services: Linux server setup, Docker Compose, Pi-hole, WireGuard, WordPress fixes, small Django sites, AI-assisted internal tools.">{% endblock %}
+{% block canonical_url %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+{% block og_tags %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Services — Debbindu Bairagi">
+<meta property="og:description" content="Linux admin and Django developer services: Linux server setup, Docker Compose, Pi-hole, WireGuard, WordPress fixes, small Django sites, AI-assisted internal tools.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Debbindu Bairagi">
+{% endblock %}
+
+{% block content %}
+  <div class="prose animate-fade-in-up">
+    <p class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-4">Services</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-100 mb-6">What I offer</h1>
+    <p class="text-zinc-400 text-lg leading-relaxed mb-10">
+      Practical backend and infrastructure work. No buzzwords, just working systems.
+    </p>
+  </div>
+
+  <div class="space-y-8 animate-fade-in-up" style="animation-delay: 0.1s;">
+
+    <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-all duration-200 hover:border-amber-500/40">
+      <header class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-zinc-100 mb-2">Linux server setup</h2>
+        <p class="text-zinc-400">Fresh server provisioning, hardening, user management, SSH hardening, firewall, fail2ban, automatic updates, systemd service management, log rotation, basic monitoring.</p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Included</h3>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Provisioning & hardening</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>SSH key access & fail2ban</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Firewall & automatic updates</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>systemd units for your services</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Backup cron & log rotation</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>README for handoff</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">Not included</h3>
+          <ul class="space-y-2 text-zinc-500 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Application code</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Database admin beyond basics</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>24/7 monitoring</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Managed Kubernetes</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Cloud provider account management</li>
+          </ul>
+        </div>
+      </div>
+      <p class="font-mono text-xs text-amber-500 uppercase tracking-wider">Scope on request.</p>
+    </article>
+
+    <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-all duration-200 hover:border-amber-500/40">
+      <header class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-zinc-100 mb-2">Docker Compose</h2>
+        <p class="text-zinc-400">Multi-container application stacks defined in docker-compose.yml with networks, volumes, healthchecks, restart policies, and environment separation (dev/staging/prod).</p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Included</h3>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Compose files per environment</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>.env.example & Makefile</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Nginx reverse proxy config</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Secrets handling</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Healthchecks & restart policies</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">Not included</h3>
+          <ul class="space-y-2 text-zinc-500 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Kubernetes manifests / Helm</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>CI/CD pipeline code</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Container registry management</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Multi-host orchestration</li>
+          </ul>
+        </div>
+      </div>
+      <p class="font-mono text-xs text-amber-500 uppercase tracking-wider">Scope on request.</p>
+    </article>
+
+    <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-all duration-200 hover:border-amber-500/40">
+      <header class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-zinc-100 mb-2">Pi-hole</h2>
+        <p class="text-zinc-400">Network-wide DNS sinkhole deployment: Pi-hole container, custom blocklists, regex filters, conditional forwarding, DHCP (optional), Prometheus metrics export, automated gravity updates.</p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Included</h3>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Pi-hole container with persistent config</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Custom blocklists & regex filters</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Conditional forwarding & DHCP (optional)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Prometheus metrics & Grafana dashboard</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Automated gravity updates</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">Not included</h3>
+          <ul class="space-y-2 text-zinc-500 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Hardware procurement</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Router config beyond DNS pointer</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Enterprise-grade HA</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Per-device policy management</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Content filtering categories</li>
+          </ul>
+        </div>
+      </div>
+      <p class="font-mono text-xs text-amber-500 uppercase tracking-wider">Scope on request.</p>
+    </article>
+
+    <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-all duration-200 hover:border-amber-500/40">
+      <header class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-zinc-100 mb-2">WireGuard / wg-easy</h2>
+        <p class="text-zinc-400">WireGuard VPN with wg-easy web UI for client management: server config, peer QR codes, per-peer DNS/MTU/keepalive, automatic firewall rules, systemd service.</p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Included</h3>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>wg-easy container with persisted configs</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Nginx reverse proxy with TLS</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>QR codes & client .conf files</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>ufw/nftables rules & systemd unit</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">Not included</h3>
+          <ul class="space-y-2 text-zinc-500 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Mesh networking</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>NAT traversal beyond standard WireGuard</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Centralized logging/analytics</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>SSO integration</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Mobile app management</li>
+          </ul>
+        </div>
+      </div>
+      <p class="font-mono text-xs text-amber-500 uppercase tracking-wider">Scope on request.</p>
+    </article>
+
+    <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-all duration-200 hover:border-amber-500/40">
+      <header class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-zinc-100 mb-2">WordPress fixes</h2>
+        <p class="text-zinc-400">Debugging, performance tuning, and cleanup of existing WordPress sites: fatal errors, plugin conflicts, slow queries, malware removal, PHP version upgrades, caching setup.</p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Included</h3>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Debugging & plugin conflict resolution</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Malware removal & PHP upgrades</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Redis object caching</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Nginx fastcgi cache & security headers</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Backup before/after</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">Not included</h3>
+          <ul class="space-y-2 text-zinc-500 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Theme development</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Custom plugin development</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Content migration</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Page builder layout work</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Ongoing maintenance retainer</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>SEO services</li>
+          </ul>
+        </div>
+      </div>
+      <p class="font-mono text-xs text-amber-500 uppercase tracking-wider">Scope on request.</p>
+    </article>
+
+    <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-all duration-200 hover:border-amber-500/40">
+      <header class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-zinc-100 mb-2">Small Django sites</h2>
+        <p class="text-zinc-400">End-to-end Django projects: models, admin, views, templates, auth, forms, tests, Dockerfile, docker-compose, Nginx/Gunicorn, PostgreSQL, Redis, Celery (if needed), basic CI.</p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Included</h3>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Models, admin, views, templates</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Auth, forms, tests (80%+ coverage)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Dockerfile, docker-compose, Nginx/Gunicorn</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>PostgreSQL, Redis, Celery (if needed)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Basic CI & deployment docs</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>2 weeks bug-fix window</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">Not included</h3>
+          <ul class="space-y-2 text-zinc-500 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>React/Vue frontend (server-rendered only)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Mobile apps</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Third-party SaaS integrations beyond webhooks</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Load testing</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Ongoing feature work</li>
+          </ul>
+        </div>
+      </div>
+      <p class="font-mono text-xs text-amber-500 uppercase tracking-wider">Scope on request.</p>
+    </article>
+
+    <article class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-all duration-200 hover:border-amber-500/40">
+      <header class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-zinc-100 mb-2">AI-assisted internal tools</h2>
+        <p class="text-zinc-400">Custom CLI tools, dashboards, or automation scripts built with LLM-assisted development: data pipelines, report generators, migration scripts, admin panels, Slack/Discord bots.</p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="font-mono text-xs text-amber-500 uppercase tracking-wider mb-3">Included</h3>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Working tool with source code & tests</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Documentation & Dockerfile (if server-based)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>Install/update instructions</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>2 weeks iteration window</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">Not included</h3>
+          <ul class="space-y-2 text-zinc-500 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Model training/fine-tuning</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Production ML pipelines</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Vector databases / RAG systems</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Prompt engineering consulting</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-700 flex-shrink-0"></span>Ongoing LLM API cost management</li>
+          </ul>
+        </div>
+      </div>
+      <p class="font-mono text-xs text-amber-500 uppercase tracking-wider">Scope on request.</p>
+    </article>
+
+  </div>
+
+  <div class="mt-12 sm:mt-16 text-center animate-fade-in-up" style="animation-delay: 0.2s;">
+    <a href="{% url 'contact' %}" class="inline-flex items-center justify-center gap-2 bg-amber-500 text-zinc-950 px-6 py-3 rounded-xl font-semibold text-sm hover:bg-amber-400 transition-colors duration-150 min-h-[48px]">Discuss a project →</a>
+  </div>
+{% endblock %}
